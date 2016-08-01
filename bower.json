@@ -1,0 +1,9 @@
+{
+  "name": "telegramBot",
+  "version": "0.0.1",
+  "description": "TelegramBot",
+  "private": true,
+  "dependencies": {
+    "highcharts": "^4.2.5"
+  }
+}

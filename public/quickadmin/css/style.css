@@ -1,0 +1,81 @@
+*:not(i) {
+    font-family: "WMitra" !important;
+}
+
+label,h1,h2,h3,h4,h5,h6 {
+    font-weight: bolder;
+
+    margin: 0 !important;
+}
+
+.about-login {
+    text-align: justify;
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.back-with {
+    background-color: white;
+}
+
+.top-10{
+    position: relative;
+    margin-top:3%;
+    top:10%;
+}
+
+.login-back{
+    position: relative;
+    margin-top:5%;
+    top:5%;
+    right:10%;
+    background-color: rgba(217,214,0,0.3);
+    border: rgba(255,0,0,0.1) thin solid;
+}
+
+
+.login-img{
+    background-image: url("/quickadmin/images/back.jpg");
+}
+
+.width300 {
+    width: 300px;
+    word-wrap: normal;
+}
+
+.height100{
+    height: 100% !important;
+    min-height: 500px !important;
+}
+
+.login-form{
+    position: relative;
+    margin-top:10%;
+    top:10%;
+    right:5%;
+}
+
+.portlet-title, .caption {
+    float: right !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.margin-left-30 {
+    margin-left: 30px;
+}
+
+.margin-left-60 {
+    margin-left: 60px;
+}
+
+.padding0 {
+    padding: 0 !important;
+}
+
+.patient-toolbar {
+    position: absolute !important;
+    top: 50px;
+    left:10px;
+}

@@ -9,6 +9,9 @@ $(document).ready(function () {
 
     $('.datatable').dataTable({
         retrieve: true,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Persian.json"
+        },
         "iDisplayLength": 100,
         "aaSorting": [],
         "aoColumnDefs": [
@@ -18,7 +21,7 @@ $(document).ready(function () {
 
     $('.ckeditor').each(function () {
         CKEDITOR.replace($(this));
-    })
+    });
 
     $('.mass').click(function () {
         if ($(this).is(":checked")) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Schema;
 use App\Bot;
@@ -24,7 +25,10 @@ class BotController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $bot = Bot::with("user")->get();
+        //$bot = Bot::with("user")->get();
+
+        $user_id = Auth::user()->id;
+        $bot = Bot::with("user")->get()->where('user.id',$user_id);
 
 		return view('admin.bot.index', compact('bot'));
 	}
@@ -36,7 +40,10 @@ class BotController extends Controller {
 	 */
 	public function create()
 	{
-	    $user = User::lists("name", "id")->prepend('Please select', '');
+	    //$user = User::lists("name", "id")->prepend('Please select', '');
+
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
 
 	    
 	    return view('admin.bot.create', compact("user"));
@@ -64,7 +71,10 @@ class BotController extends Controller {
 	public function edit($id)
 	{
 		$bot = Bot::find($id);
-	    $user = User::lists("name", "id")->prepend('Please select', '');
+	    //$user = User::lists("name", "id")->prepend('Please select', '');
+
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
 
 	    
 		return view('admin.bot.edit', compact('bot', "user"));

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Schema;
 use App\Channel;
@@ -24,7 +25,10 @@ class ChannelController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $channel = Channel::with("user")->get();
+        //$channel = Channel::with("user")->get();
+
+        $user_id = Auth::user()->id;
+        $channel = Channel::with("user")->get()->where('user.id',$user_id);
 
 		return view('admin.channel.index', compact('channel'));
 	}
@@ -36,9 +40,10 @@ class ChannelController extends Controller {
 	 */
 	public function create()
 	{
-	    $user = User::lists("name", "id")->prepend('Please select', '');
+	    //$user = User::lists("name", "id")->prepend('Please select', '');
+        $user_id = Auth::user()->id;
+	    $user = User::find($user_id);
 
-	    
 	    return view('admin.channel.create', compact("user"));
 	}
 
@@ -64,9 +69,11 @@ class ChannelController extends Controller {
 	public function edit($id)
 	{
 		$channel = Channel::find($id);
-	    $user = User::lists("name", "id")->prepend('Please select', '');
+	    //$user = User::lists("name", "id")->prepend('Please select', '');
 
-	    
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+
 		return view('admin.channel.edit', compact('channel', "user"));
 	}
 
